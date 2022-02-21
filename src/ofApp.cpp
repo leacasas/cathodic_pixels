@@ -109,8 +109,8 @@ void ofApp::mousePressed(int x, int y, int button)
 {
 	this->state++;
 
-	if (this->state > 4)
-		this->state = 0;
+	if (this->state > 5)
+		this->state = 1;
 
 	if (this->state == 1)
 	{

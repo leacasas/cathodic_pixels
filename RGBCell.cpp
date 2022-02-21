@@ -33,7 +33,7 @@ void RGBCell::ChangeTo(float rr, float gg, float bb, int durationInSecs, int del
 	this->tb = bb;
 	this->delay = delay;
 	this->startTime = ofGetFrameNum();
-	this->endTime = ofGetFrameNum() + 180;
+	this->endTime = ofGetFrameNum() + 150;
 	this->currentTime = 0;
 }
 
