@@ -114,17 +114,21 @@ void ofApp::mousePressed(int x, int y, int button)
 
 	if (this->state == 1)
 	{
-		img.load("girl_160.jpg");
+		img.load("klimnt_160.jpg");
 	}
 	else if (this->state == 2)
 	{
-		img.load("monalisa_160.jpg");
+		img.load("girl_160.jpg");
 	}
 	else if (this->state == 3)
 	{
-		img.load("vangogh_160.jpg");
+		img.load("monalisa_160.jpg");
 	}
 	else if (this->state == 4)
+	{
+		img.load("vangogh_160.jpg");
+	}
+	else if (this->state == 5)
 	{
 		img.load("scream_160.jpg");
 	}
