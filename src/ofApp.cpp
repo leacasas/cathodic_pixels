@@ -6,7 +6,7 @@ void ofApp::setup()
 	this->state = this->recframeNum = 0;
 	this->recordEnabled = false;
 
-	float size = 12;
+	float size = 6;
 	int rows = ofGetHeight() / size;
 	int cols = ofGetWidth() / size;
 
@@ -114,19 +114,19 @@ void ofApp::mousePressed(int x, int y, int button)
 
 	if (this->state == 1)
 	{
-		img.load("girl_80.jpg");
+		img.load("girl_160.jpg");
 	}
 	else if (this->state == 2)
 	{
-		img.load("monalisa_80.jpg");
+		img.load("monalisa_160.jpg");
 	}
 	else if (this->state == 3)
 	{
-		img.load("vangogh_80.jpg");
+		img.load("vangogh_160.jpg");
 	}
 	else if (this->state == 4)
 	{
-		img.load("scream_80.jpg");
+		img.load("scream_160.jpg");
 	}
 
 	size_t length = cells.size();
