@@ -1,7 +1,7 @@
 #include "RGBCell.h"
 #include <ofMain.h>
 
-RGBCell::RGBCell(){}
+RGBCell::RGBCell() {}
 
 RGBCell::RGBCell(float x, float y, float d)
 {
@@ -103,31 +103,61 @@ void RGBCell::UpdateNoise(float rr, float gg, float bb)
 	float f = (ofGetElapsedTimeMillis() * 0.00075);
 	float x = this->position.x / (ofGetHeight() / 4);
 	float y = this->position.y / (ofGetWidth() / 4);
-	this->r = (ofSignedNoise(x, y, 0, 0+f) / 2 + .5);this->r *= this->r * rr;
-	this->g = (ofSignedNoise(x, y, 3, 3+f) / 2 + .5);this->g *= this->g * gg;
-	this->b = (ofSignedNoise(x, y, 6, 6+f) / 2 + .5);this->b *= this->b * bb;
+	this->r = (ofSignedNoise(x, y, 0, 0 + f) / 2 + .5);this->r *= this->r * rr;
+	this->g = (ofSignedNoise(x, y, 3, 3 + f) / 2 + .5);this->g *= this->g * gg;
+	this->b = (ofSignedNoise(x, y, 6, 6 + f) / 2 + .5);this->b *= this->b * bb;
 }
 
 void RGBCell::Draw()
 {
-	ofSetColor(ofColor::red);
-	ofDrawRectangle(this->position.x + this->width * 1, this->position.y + this->height, this->width, this->height * this->r);
-	
-	ofSetColor(ofColor::green);
-	ofDrawRectangle(this->position.x + this->width * 2, this->position.y + this->height, this->width, this->height * this->g);
+	ofSetColor(ofColor::red, this->r * 255);
+	ofDrawRectangle(
+		this->position.x + (this->width * (1 - this->r)), 
+		this->position.y + (this->height * (1 - this->r)),
+		this->width * this->r, 
+		this->height * this->r
+	);
 
-	ofSetColor(ofColor::blue);
-	ofDrawRectangle(this->position.x + this->width * 3, this->position.y + this->height, this->width, this->height * this->b);
+	ofSetColor(ofColor::green, this->g * 255);
+	ofDrawRectangle(
+		this->position.x + this->width + (this->width * (1 - this->g)),
+		this->position.y + (this->height * (1 - this->g)),
+		this->width * this->g,
+		this->height * this->g
+	);
+
+	ofSetColor(ofColor::blue, this->b * 255);
+	ofDrawRectangle(
+		this->position.x + this->width * 2 + (this->width * (1 - this->b)),
+		this->position.y + (this->height * (1 - this->b)),
+		this->width * this->b,
+		this->height * this->b
+	);
 }
 
 void RGBCell::Draw2()
 {
-	ofSetColor(ofColor::red);
-	ofDrawRectangle(this->position.x + this->width, this->position.y + this->height * 1, this->height * this->r, this->width);
+	ofSetColor(ofColor::red, this->r * 255);
+	ofDrawRectangle(
+		this->position.x + (this->width * (1 - this->r)),
+		this->position.y + (this->height * (1 - this->r)),
+		this->width * this->r,
+		this->height * this->r
+	);
 
-	ofSetColor(ofColor::green);
-	ofDrawRectangle(this->position.x + this->width, this->position.y + this->height * 2, this->height * this->g, this->width);
+	ofSetColor(ofColor::green, this->g * 255);
+	ofDrawRectangle(
+		this->position.x + this->width + (this->width * (1 - this->g)),
+		this->position.y + (this->height * (1 - this->g)),
+		this->width * this->g,
+		this->height * this->g
+	);
 
-	ofSetColor(ofColor::blue);
-	ofDrawRectangle(this->position.x + this->width, this->position.y + this->height * 3, this->height * this->b, this->width);
+	ofSetColor(ofColor::blue, this->b * 255);
+	ofDrawRectangle(
+		this->position.x + this->width * 2 + (this->width * (1 - this->b)),
+		this->position.y + (this->height * (1 - this->b)),
+		this->width * this->b,
+		this->height * this->b
+	);
 }
